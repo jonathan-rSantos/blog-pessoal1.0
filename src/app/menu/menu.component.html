@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+   <div>
+       <img src="{{foto}}" alt="Logotipo" width="50px" height="50px" class="img-fluid rounded-circle">
+   </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+   
+    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+      <ul class="navbar-nav mr-auto d-flex align-items-center">  <!-- mr-auto joga a direia/ ml-auto a esquerda/ m-auto centro -->
+        <li class="nav-item">
+          <a class="nav-link fs-16" href="" routerLink='/inicio'>Olá, {{nome}}</a>
+        </li>
+          <!-- LI CONTATO-->
+        <li class="nav-item">
+          <a class="nav-link " href="">Contato</a>
+        </li>
+        <!-- LI CONTATO-->
+
+        <!-- LI SOBRE NOS-->
+        <li class="nav-item">
+            <a class="nav-link " href="">Sobre nós</a>
+          </li>
+           <!-- LI SOBRE NOS-->
+
+        <!--<li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Ação</a>
+            <a class="dropdown-item" href="#">Outra ação</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Algo mais aqui</a>
+          </div>
+        </li> -->
+        <!--<li class="nav-item">
+          <a class="nav-link disabled" href="#">Desativado</a>
+        </li>-->
+
+        <!-- BOTAO DE EDITAR-->
+        <li>
+          <a [routerLink]="['/user-edit', id]">
+            <i class="fa fa-pencil-square-o text-dark" aria-hidden="true"></i>
+          </a>
+        </li>
+        <!-- BOTAO DE EDITAR-->
+      </ul>
+
+      <ul class="navbar-nav ml-auto d-flex align-items-center">
+        <li class="nav-item active ">
+            <a (click)='sair()' class="nav-link" href=""> Sair <i class="fa fa-sign-out" aria-hidden="true"></i> </a>
+          </li>
+      </ul>
+     <!-- <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+      </form> -->   
+    </div>
+  </nav>

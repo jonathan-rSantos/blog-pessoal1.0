@@ -38,5 +38,7 @@ return this.http.get<User>(`${environment.server}/usuarios/${id}`)
     }
       return ok
   }
+  
+
 }
   

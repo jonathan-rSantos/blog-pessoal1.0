@@ -21,6 +21,7 @@ export class InicioComponent implements OnInit {
   idTema: number
   user: User = new User()
   idUser = environment.id
+  sequenciaFotos: string
 
   constructor(
     private router: Router,
@@ -29,10 +30,10 @@ export class InicioComponent implements OnInit {
     private authService: AuthService
   ) { }
 
-  ngOnInit(){
-    window.scroll(0,0)
-    
-    if(environment.token == ''){
+  ngOnInit() {
+    window.scroll(0, 0)
+
+    if (environment.token == '') {
       /* alert('Sua sessão expirou faça o login novamente') */
       this.router.navigate(['/entrar'])
     }
@@ -40,31 +41,31 @@ export class InicioComponent implements OnInit {
     this.getAllPostagens()
   }
 
-  getAllTemas(){
-    this.temaService.getAllTema().subscribe((resp: Tema[]) =>{
+  getAllTemas() {
+    this.temaService.getAllTema().subscribe((resp: Tema[]) => {
       this.listaTemas = resp
     })
   }
 
-  findByIdTema(){
+  findByIdTema() {
     this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema) => {
       this.tema = resp
     })
   }
 
-  getAllPostagens(){
-    this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) =>{
-      this.listaPostagens = resp 
+  getAllPostagens() {
+    this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
+      this.listaPostagens = resp
     })
   }
 
-  findByIdUser(){
-    this.authService.getByIdUser(this.idUser).subscribe((resp: User) =>{
+  findByIdUser() {
+    this.authService.getByIdUser(this.idUser).subscribe((resp: User) => {
       this.user = resp
     })
   }
 
-  publicar(){
+  publicar() {
 
     this.tema.id = this.idTema
     this.postagem.tema = this.tema
@@ -72,7 +73,7 @@ export class InicioComponent implements OnInit {
     this.user.id = this.idUser
     this.postagem.usuario = this.user
 
-    this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) =>{
+    this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
       alert('Postagem realizada com sucesso!')
       this.postagem = new Postagem()
@@ -80,5 +81,6 @@ export class InicioComponent implements OnInit {
     })
 
   }
+
 
 }
